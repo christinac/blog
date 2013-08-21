@@ -17,6 +17,12 @@ class CCBlog < Sinatra::Base
 		erb :post, :locals => {:post => post}
 	end
 
+  get '/page/:num' do
+    offset = (params[:num].to_i - 1) * 6
+    posts = Post.load_recent(nil, offset)
+    erb :home, :locals => {:posts => posts}
+  end
+
 	helpers do
 	  def nest_template(path)
     	content = File.read(File.expand_path(path))

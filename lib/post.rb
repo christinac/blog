@@ -17,7 +17,8 @@ class Post
 		end
 	end
 
-	def self.load_recent(n=6, offset=0)
+	def self.load_recent(n=nil, offset=0)
+		!n ? n = 6 : n
 		shown_posts = self.all.reject{|p| p.hide}
 		posts = shown_posts.sort_by(&:date).reverse[offset..-1]
 		posts ? posts[0..(n-1)] : []
