@@ -4,12 +4,11 @@ require 'lib/post'
 
 class CCBlog < Sinatra::Base
 	before do
-		@posts = Post.load_files
+		@posts = Post.load_recent
 	end
 	
 	get '/' do
-    posts = @posts.reject{|p| p.hide }
-		erb :home, :locals => {:posts => posts}
+		erb :home, :locals => {:posts => @posts}
 	end
 
 	get '/:id' do
