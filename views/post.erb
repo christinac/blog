@@ -4,38 +4,13 @@
 	<head>
 		<title>Christina Cacioppo</title>
 		<link rel="stylesheet" type="text/css" href="static/css/cc.css">
-		<style type="text/css">
-
-		</style>
 	</head>
 	<body>
 	  <div class="centerdiv">
 	
-  <ul id="nav">
-    <li class="external">&raquo; 
-      <a href="http://christinacacioppo.com/blog" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'blog');return false;">Books</a>
-    </li>
-
-    <li class="external">&raquo; 
-      <a href="http://instagram.com/christina/" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'instagram');return false;">Instagram</a>
-    </li>
-
-    <li class="external">&raquo; 
-      <a href="http://cacioppo.tumblr.com" target="_blank" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'tumblr');return false;">Tumblr</a>
-    </li>
-
-    <li class="external">&raquo; 
-      <a href="http://www.twitter.com/christinacaci" target="_blank" onClick="recordOutboundLink(this, 'Outbound Links', 'twitter');return false;">Twitter</a>
-    </li>
-
-    <li class="external">&raquo; 
-      <a href="http://cloudflare.com/email-protection.html#cdae8daea5bfa4beb9a4a3acaeacaea4a2bdbda2e3aea2a0" onClick="recordOutboundLink(this, 'Outbound Links', 'email');return false;">Email</a>
-    </li>
-
-    </ul>
+  <%= nest_template 'views/nav.erb' %>
     
-
-	  <div class="blog-name"><a href="/blog">Kidogo</a></div>
+    <div class="blog-name"><a href="http://www.christinacacioppo.com/blog">Kidogo</a></div>
 
       <div class="post">
         <h2 class="title"><%= post.title %></h2>
@@ -45,28 +20,7 @@
         </div>
       </div>
 
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-11611524-1']);
-    _gaq.push(['_trackPageview']);
+  <%= nest_template 'views/ganalytics.erb' %>
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-            function recordOutboundLink(link, category, action) {
-          _gat._getTrackerByName()._trackEvent(category, action);
-          setTimeout('document.location = "' + link.href + '"', 100);
-        }
-        });
-  </script>
-
-	<script type="text/javascript">
-/* <![CDATA[ */
-(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&"cloudflare.com/email-protection"==a.substr(7 ,31)){s='';j=44;r=parseInt(a.substr(j,2),16);for(j+=2;a.length-j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
-/* ]]> */
-</script>
 </body>
 </html>
