@@ -1,5 +1,8 @@
 require 'rubygems'
 require 'sinatra'
+
+$:.unshift File.dirname(__FILE__)
+
 require 'lib/post'
 
 class CCBlog < Sinatra::Base
