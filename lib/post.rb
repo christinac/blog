@@ -1,5 +1,5 @@
 require 'json'
-# require 'time'
+require 'time'
 
 class Post
 	def self.all(directory = 'data/')
@@ -36,7 +36,7 @@ class Post
 		@id = options[:id]
 		@body = options[:body]
 		@title = options[:title]
-		@date = options[:date]
+		@date = Time.strptime(options[:date], '%B %e, %Y')
 		@hide = options[:hide] || false
 	end
 end

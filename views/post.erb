@@ -14,7 +14,7 @@
 
       <div class="post">
         <h2 class="title"><%= post.title %></h2>
-        <a class="date" href="<%= post.id %>"><%= post.date %></a></br>
+        <a class="date" href="<%= post.id %>"><%= post.date.strftime('%B %e, %Y') %></a></br>
         <div class="body">
           <%= post.body %>
         </div>
