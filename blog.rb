@@ -8,7 +8,8 @@ class CCBlog < Sinatra::Base
 	end
 	
 	get '/' do
-		erb :home, :locals => {:posts => @posts}
+    posts = @posts.reject{|p| p.hide }
+		erb :home, :locals => {:posts => posts}
 	end
 
 	get '/:id' do
