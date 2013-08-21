@@ -37,13 +37,13 @@
 
 	  <div class="blog-name"><a href="/blog">Kidogo</a></div>
 
-	  	<div class="post">
-    		<h2 class="title"><%= post.title %></h2>
-    		<span class="date"><em><%= post.date %></em></span></br>
-    		<div class="body">
-    			<%= post.body %>
-    		</div>
-    	</div>
+      <div class="post">
+        <h2 class="title"><%= post.title %></h2>
+        <a class="date" href="<%= post.id %>"><%= post.date %></a></br>
+        <div class="body">
+          <%= post.body %>
+        </div>
+      </div>
 
 <script type="text/javascript">
     var _gaq = _gaq || [];

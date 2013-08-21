@@ -35,12 +35,12 @@
     </ul>
     
 
-	  <div class="blog-name"><a href="/blog">Kidogo</a></div>
+	  <div class="blog-name"><a href="http://www.christinacacioppo.com/blog">Kidogo</a></div>
 
 	  <% posts.each do |post| %>
 	  	<div class="post">
     		<h2 class="title"><%= post.title %></h2>
-    		<span class="date"><em><%= post.date %></em></span></br>
+    		<a class="date" href="<%= post.id %>"><%= post.date %></a></br>
     		<div class="body">
     			<%= post.body %>
     		</div>
