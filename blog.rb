@@ -3,12 +3,15 @@ require 'sinatra'
 require 'lib/post'
 
 class CCBlog < Sinatra::Base
+  PostsPerPage = 6
+
 	before do
 		@posts = Post.load_recent
+    @max_pages = (Post.all.count / PostsPerPage).ceil
 	end
 	
 	get '/' do
-		erb :home, :locals => {:posts => @posts}
+		erb :home, :locals => {:posts => @posts, :page => 1, :max_pages => @max_pages}
 	end
 
 	get '/:id' do
@@ -18,9 +21,9 @@ class CCBlog < Sinatra::Base
 	end
 
   get '/page/:num' do
-    offset = (params[:num].to_i - 1) * 6
+    offset = (params[:num].to_i - 1) * PostsPerPage
     posts = Post.load_recent(nil, offset)
-    erb :home, :locals => {:posts => posts}
+    erb :home, :locals => {:posts => posts, :page => params[:num].to_i, :max_pages => @max_pages}
   end
 
 	helpers do

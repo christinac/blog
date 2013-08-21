@@ -22,6 +22,14 @@
     	</div>
 	  <% end %>
 
+  <% if page > 1 %>
+    &laquo; <a href="/page/<%= page - 1 %>">Later</a>
+  <% end %>
+
+  <% if page < max_pages %>
+    <span style="float:right;"><a href="/page/<%= page + 1 %>">Earlier</a> &raquo;</span>
+  <% end %>
+
   <%= nest_template 'views/ganalytics.erb' %>
 
 </body>
