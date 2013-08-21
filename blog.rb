@@ -7,7 +7,7 @@ class CCBlog < Sinatra::Base
 
 	before do
 		@posts = Post.load_recent
-    @max_pages = (Post.all.count / PostsPerPage).ceil
+    @max_pages = (Post.all.count / PostsPerPage).ceil 
 	end
 	
 	get '/' do
@@ -22,7 +22,7 @@ class CCBlog < Sinatra::Base
 
   get '/page/:num' do
     offset = (params[:num].to_i - 1) * PostsPerPage
-    posts = Post.load_recent(nil, offset)
+    posts = Post.load_recent(PostsPerPage, offset)
     erb :home, :locals => {:posts => posts, :page => params[:num].to_i, :max_pages => @max_pages}
   end
 
