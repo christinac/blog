@@ -17,7 +17,7 @@ class CCBlog < Sinatra::Base
 		erb :home, :locals => {:posts => @posts, :page => 1, :max_pages => @max_pages}
 	end
 
-	get '/:id' do
+	get '/post/:id' do
 		id = params[:id]
 		post = Post.load_file(id)
 		erb :post, :locals => {:post => post}
