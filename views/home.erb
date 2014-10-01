@@ -1,16 +1,13 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Christina Cacioppo</title>
-		<link rel="stylesheet" type="text/css" href="static/css/cc.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	</head>
 	<body>
 	  <div class="centerdiv">
 	
-  <%= nest_template 'views/nav.erb' %>
-
-	  <div class="blog-name"><a href="http://www.christinacacioppo.com/blog">Kidogo</a></div>
+	  <div class="blog-name"><a href="#">Blog name</a></div>
 
 	  <% posts.each do |post| %>
 	  	<div class="post">
@@ -29,8 +26,6 @@
   <% if page < max_pages %>
     <span style="float:right;"><a href="/page/<%= page + 1 %>">Earlier</a> &raquo;</span>
   <% end %>
-
-  <%= nest_template 'views/ganalytics.erb' %>
 
 </body>
 </html>

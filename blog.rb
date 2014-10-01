@@ -5,7 +5,7 @@ $:.unshift File.dirname(__FILE__)
 
 require 'lib/post'
 
-class CCBlog < Sinatra::Base
+class Blog < Sinatra::Base
   PostsPerPage = 6
 
 	before do
@@ -13,17 +13,17 @@ class CCBlog < Sinatra::Base
     @max_pages = (Post.all.count / PostsPerPage).ceil 
 	end
 	
-	get '/' do
+	get '/blog' do
 		erb :home, :locals => {:posts => @posts, :page => 1, :max_pages => @max_pages}
 	end
 
-	get '/post/:id' do
+	get '/blog/post/:id' do
 		id = params[:id]
 		post = Post.load_file(id)
 		erb :post, :locals => {:post => post}
 	end
 
-  get '/page/:num' do
+  get '/blog/page/:num' do
     offset = (params[:num].to_i - 1) * PostsPerPage
     posts = Post.load_recent(PostsPerPage, offset)
     erb :home, :locals => {:posts => posts, :page => params[:num].to_i, :max_pages => @max_pages}
